@@ -29,6 +29,11 @@
   }
 }
 
+/* 目录样式 */
+.md-nav--secondary .md-nav__link {
+  color: var(--md-default-fg-color); /* 使用主要文字颜色 */
+}
+
 /* 默认是 1220px，适当放宽 */
 .md-grid {
   max-width: 1600px; 
