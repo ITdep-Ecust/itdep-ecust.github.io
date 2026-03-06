@@ -1,3 +1,27 @@
-site_name: 勤工助学IT部文档网站
-theme:
+#[Info]
+site_name: 勤工助学IT部知识库
+repo_name: itdep-ecust.github.io
 repo_url: https://github.com/ITdep-Ecust/itdep-ecust.github.io
+site_author: IT-dep in qinban, ECUST.
+#[UI]
+theme:
+  name: material
+  language: zh  # 界面语言
+  favicon: images/favicon.ico  # 网站图标
+  logo: images/qzzxLogo-S.jpg  # 导航栏 Logo
+  
+  palette:
+    #primary: blue grey
+  
+    - scheme: default # 日间模式
+      primary: grey # 上方的
+      accent: cyan # 链接等可交互元件的高亮色
+      toggle:
+        icon: material/weather-night # 图标
+        name: 切换至夜间模式 # 鼠标悬浮提示
+    - scheme: slate # 夜间模式
+      primary: black 
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
