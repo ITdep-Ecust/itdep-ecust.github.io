@@ -3,12 +3,18 @@ site_name: 勤工助学IT部知识库
 repo_name: itdep-ecust.github.io
 repo_url: https://github.com/ITdep-Ecust/itdep-ecust.github.io
 site_author: IT-dep in qinban, ECUST.
+#[NAVigation]
+nav:
+  - 首页: index.md
+  - 爱心屋线上平台:
+    - 维护: 爱心屋线上平台/maintenance/readme.md
+    - 部署: 爱心屋线上平台/deploy/readme.md
 #[UI]
 theme:
   name: material
   language: zh  # 界面语言
-  favicon: images/ITLogo.ico  # 网站图标
-  logo: images/qzzxLogo-S.jpg  # 导航栏 Logo
+  favicon: .asserts/images/ITLogo.ico  # 网站图标
+  logo: .asserts/images/qzzxLogo-L.jpg  # 导航栏 Logo
   palette:
     #primary: blue grey
   
@@ -39,14 +45,9 @@ theme:
     - search.suggest  # 搜索建议
     - search.highlight  # 搜索结果高亮
     - content.tabs.link  # 内容标签页链接
+extra_css:
+  - .asserts/css/extra.css
 
 extra:
   generator: false  #删除页脚显示“MkDocs”
 copyright: Copyright &copy; ITdep in Qinban, Ecust. 保留一切权利. # 左下角的版权声明
-
-#[NAVigation]
-nav:
-  - 首页: index.md
-  - 爱心屋线上平台:
-    - 维护: 爱心屋线上平台/maintenance/readme.md
-    - 部署: 爱心屋线上平台/deploy/readme.md

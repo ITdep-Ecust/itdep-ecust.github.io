@@ -83,12 +83,11 @@
    - `apt`更新数据库老是出毛病，一怒之下放到了docker容器中。现在数据库地址为`172.17.0.1`，端口还是3306，用户名`root`，密码常用。
    
      - 如果要重新配置还是挺麻烦的。首先拉取镜像后使用`microdnf install nano`安装文本编辑器，然后在`/etc/my.cnf`中写入`mysql_native_password=ON`，然后再在数据库中修改用户权限：
+	 
 	 ```
-	 >update user set authentication_string='' where user='root';
-
-     >flush privileges;
-
-     >select user,host from user; ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123';
+	 update user set authentication_string='' where user='root';
+     flush privileges;
+     select user,host from user; ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123';
 	 
 	 ```
 	 
@@ -136,11 +135,11 @@
 
 1. 首先使用 `sudo ip addr show` 查看网络状态，请检查 IPv4 地址是否被正确分配到（图示为正常情况）。
 
-    ![image](.assert/2.png)
+    ![image](.assert/3.png)
   
     如果服务器刚刚重启，没有 DHCP 服务，使用 `sudo dhclient` 开启动态地址服务。
   
-    ![image](.assert/3.png)
+    ![image](.assert/4.png)
 
     之后再次检查 IPv4 地址。一般到此就可以打开网页了。
 
@@ -152,8 +151,6 @@
     ```
 
     顺序可以颠倒。
-
-    ![image](.assert/4.png)
 
 #### 如果服务没有恢复的话请恢复快照版本，并且注意保护快照版本!
 
