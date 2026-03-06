@@ -696,12 +696,12 @@
 
   <h1>部署</h1>
 
-<h2 id="_1">这篇文档的由来</h2>
+<h2 id="_1">这篇文档的由来<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在IT工作的几个月里，爱心屋服务器有时会出现bug，需要我们员工来修。</p>
 <p>然而，对于我这样的rookie而言，一步到位的修复是不可能的，我常常需要多次提交测试才能弄清楚修改的方式。由于爱心屋网站一直处于活跃状态，测试会影响到爱心屋的工作，因此现在非常有必要再部署一个测试环境。幸运的是，在25年过年期间，在不断摸索下，我成功再次部署了爱心屋网站，并写下这篇教程，正好作为部署教程，供所有为爱心屋网站服务的同学查看。</p>
 <p>本人创建的虚拟机名称为：<code>AXW-TestEnv</code>。</p>
-<h4 id="2329537849qqcom">重要：本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！</h4>
-<h2 id="i">I. 系统和环境搭建</h2>
+<h4 id="2329537849qqcom">重要：本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！<a class="headerlink" href="#2329537849qqcom" title="Permanent link">&para;</a></h4>
+<h2 id="i">I. 系统和环境搭建<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
 <p>虚拟机建立系统就使用EXSI里保存的ubuntu系统镜像即可。在EXSI管理界面增加新的虚拟机，并安装相应系统。</p>
 <ul>
 <li>
@@ -765,13 +765,13 @@
 <p>创建好之后启动虚拟环境：</p>
 <p><code>conda activate Django_Axw</code></p>
 <p>启动成功后用户名前面会出现 <code>(axw2022)</code> 的前缀。</p>
-<h2 id="ii">II. 库安装</h2>
+<h2 id="ii">II. 库安装<a class="headerlink" href="#ii" title="Permanent link">&para;</a></h2>
 <p>接下来就是安装所需的库。最好先换源，pip和conda都要，怎么换源就不详细说明了。安装库可以使用git仓库里面的requirement.txt文件，也可以复制下面的代码（已使用清华源）。</p>
 <p><code>pip install Django django-simpleui django-imagekit pymysql pandas cryptography django-cors-headers Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple/</code></p>
 <p>不要忘记清理缓存，输入以下指令：</p>
 <p><code>conda clean --all</code></p>
 <p><code>pip cache purge</code></p>
-<h2 id="iii">III. 启动</h2>
+<h2 id="iii">III. 启动<a class="headerlink" href="#iii" title="Permanent link">&para;</a></h2>
 <p>安装好库文件之后，先把git仓库pull下来，把python配置设置好。这里是pull到了 <code>/var/www/html/axw2022</code></p>
 <p>然后要连接数据库，关键在于 <code>settings.py</code>。首次启动需要注释掉 <code>staticfile_dirs</code> 设置，启用 <code>static_root</code> 设置。第一次启动完成后再改回来。可以使用我已经改好的 <code>settings.py</code> 文件，在附件中有。</p>
 <p>启动的话，<code>cd /var/www/html/axw2022</code>，再按照如下次序依次启动即可。</p>
@@ -781,7 +781,7 @@
     python manage.py collectstatic
     python /var/www/html/axw2022/manage.py runserver 0.0.0.0:8000</code></p>
 <p>最后校内访问：IT部测试平台为172.18.58.177.</p>
-<h2 id="_2">其他讯息</h2>
+<h2 id="_2">其他讯息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>报错：
 - &gt; "Can't connect to local MySQL server through socket '/tmp/mysql.sock<code>-</code>sudo find / -name mysql.sock<code>然后</code>ln -s <path/to/mysqld.sock> /tmp/mysql.sock<code>-</code>Error loading MySQLdb module`
   - <a href="https://blog.csdn.net/jyr2014/article/details/126712167">Django运行报错： Error loading MySQLdb module解决办法</a>
