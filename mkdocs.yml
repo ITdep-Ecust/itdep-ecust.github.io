@@ -7,9 +7,8 @@ site_author: IT-dep in qinban, ECUST.
 theme:
   name: material
   language: zh  # 界面语言
-  favicon: images/favicon.ico  # 网站图标
+  favicon: images/ITLogo.ico  # 网站图标
   logo: images/qzzxLogo-S.jpg  # 导航栏 Logo
-  
   palette:
     #primary: blue grey
   
@@ -25,3 +24,29 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: 切换至日间模式
+  font:
+    text: Roboto  # 正文字体
+    code: Roboto Mono  # 代码字体
+  icon:
+    repo: fontawesome/brands/github  # 仓库图标
+    admonition:
+      note: octicons/tag-16
+      tip: octicons/light-bulb-16
+  features:
+    - navigation.tabs  # 顶部标签式导航
+    - navigation.sections  # 侧边栏按节分组
+    - navigation.top  # 回到顶部按钮
+    - search.suggest  # 搜索建议
+    - search.highlight  # 搜索结果高亮
+    - content.tabs.link  # 内容标签页链接
+
+extra:
+  generator: false  #删除页脚显示“MkDocs”
+copyright: Copyright &copy; ITdep in Qinban, Ecust. 保留一切权利. # 左下角的版权声明
+
+#[NAVigation]
+nav:
+  - 首页: index.md
+  - 爱心屋线上平台:
+    - 维护: 爱心屋线上平台/maintenance/readme.md
+    - 部署: 爱心屋线上平台/deploy/readme.md
