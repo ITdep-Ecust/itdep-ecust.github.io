@@ -27,13 +27,13 @@ jobs:
         with:
             python-version: 3.x
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      #- name: Install Dependencies
+      #  run: |
+      #    python -m pip install --upgrade pip
+      #    pip install -r requirements.txt
           
-      - name: Update Directory
-        run: python update.py
+      #- name: Update Directory
+      #  run: python update.py
       
       - name: Deploy Documents
         uses: mhausenblas/mkdocs-deploy-gh-pages@nomaterial
