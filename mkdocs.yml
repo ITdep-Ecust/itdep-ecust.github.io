@@ -45,6 +45,26 @@ theme:
     - search.suggest  # 搜索建议
     - search.highlight  # 搜索结果高亮
     - content.tabs.link  # 内容标签页链接
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - abbr
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - md_in_html
+  - pymdownx.arithmatex:  # latex支持
+      generic: true
+  - toc:
+      permalink: true # 固定标题位置为当前位置
+  - pymdownx.highlight: # 代码块高亮
+      anchor_linenums: true
+      linenums: true # 显示行号
+      auto_title: true # 显示编程语言名称
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - meta # 支持Markdown文件上方自定义标题标签等
 extra_css:
   - asserts/css/extra.css
 
