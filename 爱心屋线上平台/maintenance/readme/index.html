@@ -20,7 +20,7 @@
         
       
       
-      <link rel="icon" href="../../../images/ITLogo.ico">
+      <link rel="icon" href="../../../.asserts/images/ITLogo.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
@@ -66,6 +66,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../.asserts/css/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -107,7 +109,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="勤工助学IT部知识库" class="md-header__button md-logo" aria-label="勤工助学IT部知识库" data-md-component="logo">
       
-  <img src="../../../images/qzzxLogo-S.jpg" alt="logo">
+  <img src="../../../.asserts/images/qzzxLogo-L.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -296,7 +298,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="勤工助学IT部知识库" class="md-nav__button md-logo" aria-label="勤工助学IT部知识库" data-md-component="logo">
       
-  <img src="../../../images/qzzxLogo-S.jpg" alt="logo">
+  <img src="../../../.asserts/images/qzzxLogo-L.jpg" alt="logo">
 
     </a>
     勤工助学IT部知识库
@@ -976,16 +978,12 @@
 <li>
 <p><code>apt</code>更新数据库老是出毛病，一怒之下放到了docker容器中。现在数据库地址为<code>172.17.0.1</code>，端口还是3306，用户名<code>root</code>，密码常用。</p>
 <ul>
-<li>如果要重新配置还是挺麻烦的。首先拉取镜像后使用<code>microdnf install nano</code>安装文本编辑器，然后在<code>/etc/my.cnf</code>中写入<code>mysql_native_password=ON</code>，然后再在数据库中修改用户权限：
- ```<blockquote>
-<p>update user set authentication_string='' where user='root';</p>
-</blockquote>
-</li>
+<li>如果要重新配置还是挺麻烦的。首先拉取镜像后使用<code>microdnf install nano</code>安装文本编辑器，然后在<code>/etc/my.cnf</code>中写入<code>mysql_native_password=ON</code>，然后再在数据库中修改用户权限：</li>
 </ul>
-<blockquote>
-<p>flush privileges;</p>
-<p>select user,host from user; ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123';</p>
-</blockquote>
+<p>```
+ update user set authentication_string='' where user='root';
+ flush privileges;
+ select user,host from user; ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123';</p>
 <p>```</p>
 </li>
 <li>
@@ -1047,9 +1045,9 @@
 <ol>
 <li>
 <p>首先使用 <code>sudo ip addr show</code> 查看网络状态，请检查 IPv4 地址是否被正确分配到（图示为正常情况）。</p>
-<p><img alt="image" src=".assert/2.png" /></p>
-<p>如果服务器刚刚重启，没有 DHCP 服务，使用 <code>sudo dhclient</code> 开启动态地址服务。</p>
 <p><img alt="image" src="../.assert/3.png" /></p>
+<p>如果服务器刚刚重启，没有 DHCP 服务，使用 <code>sudo dhclient</code> 开启动态地址服务。</p>
+<p><img alt="image" src="../.assert/4.png" /></p>
 <p>之后再次检查 IPv4 地址。一般到此就可以打开网页了。</p>
 </li>
 <li>
@@ -1057,7 +1055,6 @@
 <p><code>journalctl -xeu caddy
 journalctl -xeu axw</code></p>
 <p>顺序可以颠倒。</p>
-<p><img alt="image" src="../.assert/4.png" /></p>
 </li>
 </ol>
 <h4 id="_7">如果服务没有恢复的话请恢复快照版本，并且注意保护快照版本!</h4>
