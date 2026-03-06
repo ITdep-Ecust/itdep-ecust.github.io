@@ -13,8 +13,8 @@ nav:
 theme:
   name: material
   language: zh  # 界面语言
-  favicon: .asserts/images/ITLogo.ico  # 网站图标
-  logo: .asserts/images/qzzxLogo-L.jpg  # 导航栏 Logo
+  favicon: asserts/images/ITLogo.ico  # 网站图标
+  logo: asserts/images/qzzxLogo-L.jpg  # 导航栏 Logo
   palette:
     #primary: blue grey
   

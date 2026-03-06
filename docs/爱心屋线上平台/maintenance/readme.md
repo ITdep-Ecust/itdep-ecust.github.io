@@ -135,11 +135,11 @@
 
 1. 首先使用 `sudo ip addr show` 查看网络状态，请检查 IPv4 地址是否被正确分配到（图示为正常情况）。
 
-    ![image](.assert/3.png)
+    ![image](assert/3.png)
   
     如果服务器刚刚重启，没有 DHCP 服务，使用 `sudo dhclient` 开启动态地址服务。
   
-    ![image](.assert/4.png)
+    ![image](assert/4.png)
 
     之后再次检查 IPv4 地址。一般到此就可以打开网页了。
 
