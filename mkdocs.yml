@@ -67,7 +67,9 @@ markdown_extensions:
   - meta # 支持Markdown文件上方自定义标题标签等
 extra_css:
   - asserts/css/extra.css
-
+extra_javascript:
+  - asserts/js/extra.js
+  
 extra:
   generator: false  #删除页脚显示“MkDocs”
 copyright: Copyright &copy; ITdep in Qinban, Ecust. 保留一切权利. # 左下角的版权声明
