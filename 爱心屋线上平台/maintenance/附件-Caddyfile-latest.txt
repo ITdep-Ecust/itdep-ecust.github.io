@@ -1,0 +1,64 @@
+# The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain's A/AAAA DNS records are properly pointed to
+# this machine's public IP, then replace ":80" below with your
+# domain name.
+
+
+
+# 爱心屋反代配置
+axw.ecust.edu.cn {
+        
+        # Set this path to your site's directory.
+        root * /var/www/html/axw2022
+        tls /var/www/html/cert/axw.ecust.edu.cn/cert.pem /var/www/html/cert/axw.ecust.edu.cn/cert.key
+
+        # Enable the static file server.
+        file_server 
+        
+		# 反代python端口
+        reverse_proxy :8000 {
+			header_up Host {http.request.host}
+			header_up X-Real-IP {remote}
+			header_up X-Forwarded-For {http.request.headers.X-Forwarded-For}, {remote}
+
+			# Caddy和Django之间的传输限时
+			transport http {
+				read_timeout 60s
+				write_timeout 60s
+				dial_timeout 30s
+			}
+		}
+	
+	# 设置 HTTP 响应头部
+	header {
+		Content-Security-Policy "default-src 'self' localhost:8080 'unsafe-inline' 'unsafe-eval' blob: data: ; frame-aname-ancestors 'self';"
+		X-Frame-Options "SAMEORIGIN"
+		Strict-Transport-Security "max-age=6307200; includeSubdomains; preload"
+		X-Download-Options "noopen"
+		X-Permitted-Cross-Domain-Policies "master-only"
+	}
+
+    # 拒绝OPTIONS和PUT请求
+	@optionsRequest method OPTIONS
+	respond @optionsRequest 403
+	@putRequesrt method PUT
+	respond @putRequesrt 403
+
+	# 拒绝map文件访问请求
+	@mapFiles path_regexp \.map$
+	respond @mapFiles 403
+}	
+
+# phpmyadmin server （新系统没装php，所以用不了）
+axw.itdep.tech {
+	# php
+	root * /var/www/html
+	file_server
+	php_fastcgi unix//run/php/php8.1-fpm.sock
+	tls /var/www/html/cert/axw.itdep.tech/cert.pem /var/www/html/cert/axw.itdep.tech/cert.key
+}
