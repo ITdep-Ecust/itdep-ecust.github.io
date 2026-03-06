@@ -46,7 +46,7 @@ theme:
     - search.highlight  # 搜索结果高亮
     - content.tabs.link  # 内容标签页链接
 extra_css:
-  - .asserts/css/extra.css
+  - asserts/css/extra.css
 
 extra:
   generator: false  #删除页脚显示“MkDocs”
