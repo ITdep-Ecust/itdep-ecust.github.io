@@ -6,7 +6,9 @@
 
 本人创建的虚拟机名称为：`AXW-TestEnv`。
 
-#### 重要：本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！
+!!! warning "重要"
+
+    本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！
 
 ## I. 系统和环境搭建
 
@@ -36,50 +38,52 @@
 
 其次是mysql，使用如下命令安装：
 
-  `sudo apt-get update`
+`sudo apt-get update`
 
-  `sudo apt-get install mysql-client`
+`sudo apt-get install mysql-client`
 
-  `sudo apt-get install mysql-server`
+`sudo apt-get install mysql-server`
 
-  `sudo mysql_secure_installation` 
+`sudo mysql_secure_installation` 
 
 按照提示输入信息即可。参考[文章](https://blog.csdn.net/lianghecai52171314/article/details/113807099)。
 
-- 数据库名：`AXW`，根用户名：`root`，密码请设置为常用密码。
+- 数据库名：`AXW`，根用户名：`root`。
 
 - mysql装好后需要建立数据库。
   - `mysql -u root -p` 登录数据库。
   - `create DATABASE AXW;` 即可建立所需数据库。
-  - 如果在启动时想要以root用户名登录数据库（settings.py里），那么请输入该指令：`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '这里改成常用密码';`。
+  - 如果在启动时想要以root用户名登录数据库（settings.py里），那么请输入该指令：`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '登录密码';`。
 
 然后是python。首先安装conda，直接复制以下代码即可。如果conda有更新可以更换为新版本，只要把sh文件名称换一下即可。
 
-  `wget -c https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh`
+`wget -c https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh`
 
 conda默认会安装在 `/home/itdep` 目录下，可以修改。注意，安装时会询问是否需要添加环境变量，如果不会在linux系统中添加，请输入 `yes`。总之想省事一路 `yes` 就行了，然后输入以下指令刷新环境变量：
 
-  `source /home/itdep/.bashrc`
+`source /home/itdep/.bashrc`
+
+如果不能加入环境变量，也可以使用该命令 `/home/itdep/anaconda3/bin/conda init bash`
 
 想要卸载conda也很简单，直接删除 `/home/itdep/anaconda3` 文件夹即可。
 
-  `rm -rf /home/itdep/anaconda3`
+`rm -rf /home/itdep/anaconda3`
 
 安装成功后，输入以下指令，若返回conda版本信息，则conda安装成功。
 
-  `conda -V`
-  
+`conda -V`
+
 要创建python3.9的虚拟环境，指令如下（-n后面的名称任意）：
 
-  `conda create -n Django_Axw python==3.9`
+`conda create -n Django_Axw python==3.9`
 
 想要删除虚拟环境：
-  
-  `conda remove -n Django_Axw --all`
+
+`conda remove -n Django_Axw --all`
 
 创建好之后启动虚拟环境：
 
-  `conda activate Django_Axw`
+`conda activate Django_Axw`
 
 启动成功后用户名前面会出现 `(axw2022)` 的前缀。
 
@@ -87,13 +91,13 @@ conda默认会安装在 `/home/itdep` 目录下，可以修改。注意，安装
 
 接下来就是安装所需的库。最好先换源，pip和conda都要，怎么换源就不详细说明了。安装库可以使用git仓库里面的requirement.txt文件，也可以复制下面的代码（已使用清华源）。
 
-  `pip install Django django-simpleui django-imagekit pymysql pandas cryptography django-cors-headers Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple/`
+`pip install Django django-simpleui django-imagekit pymysql pandas cryptography django-cors-headers Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple/`
 
 不要忘记清理缓存，输入以下指令：
 
-  `conda clean --all`
+`conda clean --all`
 
-  `pip cache purge`
+`pip cache purge`
 
 ## III. 启动
 
@@ -111,7 +115,22 @@ conda默认会安装在 `/home/itdep` 目录下，可以修改。注意，安装
     python /var/www/html/axw2022/manage.py runserver 0.0.0.0:8000
   ```
 
-最后校内访问：IT部测试平台为172.18.58.177.
+!!! warning "重要"
+
+    如果不出意外，运行 `python manage.py makemigrations` 时会提示数据库没有安装，或者数据库版本过低。但实际上我们已经安装了 `pymysql` ，是可以使用外部的数据库服务器的。
+	
+	在setting.py的__init__.py里写入
+
+    ```
+    import pymysql
+    pymysql.version_info = (2, 2, 1, "final", 0)
+    pymysql.install_as_MySQLdb()
+    ```
+	
+	再运行即可成功连接数据库。
+	
+
+最后校内访问：IT部测试平台为`172.18.58.177`（可能会改变，请注意检查虚拟机网络拓扑）.
 
 ## 其他讯息
 
