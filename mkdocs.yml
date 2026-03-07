@@ -1,9 +1,9 @@
 #[Info]
-site_name: 勤工助学IT部文档
+site_name: 勤工助学IT部文档（Beta）
 repo_name: itdep-ecust.github.io
 repo_url: https://github.com/ITdep-Ecust/itdep-ecust.github.io
 site_author: IT-dep in qinban, ECUST.
-#[NAVigation]
+#[Navigation]
 nav:
   - 本项目和仓库相关:
     - 须知: index.md
