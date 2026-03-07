@@ -54,6 +54,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - md_in_html
+  - pymdownx.tasklist #复选框支持
   - pymdownx.arithmatex:  # latex支持
       generic: true
   - toc:

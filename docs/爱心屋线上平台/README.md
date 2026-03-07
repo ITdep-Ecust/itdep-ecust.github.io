@@ -36,17 +36,17 @@
 
 - [x] 订单管理逻辑 remake，统一移至 DjangoAdmin
 
-- 导入功能 remake
-  - [ ] 移至 DjangoAdmin
-  - [x] 改用 pandas 读入
-  - [ ] 用 Series 增强易读性
+- [ ] 导入功能 remake
+    - [ ] 移至 DjangoAdmin
+    - [x] 改用 pandas 读入
+    - [ ] 用 Series 增强易读性
   
 - [ ] 客户订单管理 remake，客户信息收集/密码修改功能
 
 - [x] 下单逻辑 remake，限购逻辑 remake
 
-- 前端页面优化
-  - [x] 商品搜索功能
+- [ ] 前端页面优化
+    - [x] 商品搜索功能
   
 - [ ] 饼：OAuth
 
