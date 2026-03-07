@@ -962,13 +962,10 @@
 <p>系统相关：</p>
 <ul>
 <li>
-<p>Linux 后端连接方式：用ssh，或者用 EXSI 虚拟机管理平台（具体方法见后文）</p>
+<p>Linux 后端连接方式：用ssh，或者用 EXSI 虚拟机管理平台（具体方法见后文），登录用户名和密码请询问管理人员。</p>
 </li>
 <li>
-<p>登录用户名：<code>itdep</code>；密码：常用。</p>
-</li>
-<li>
-<p>EXSI 平台IP地址：<code>172.18.58.11</code> <strong>用户名</strong>：<code>root</code> <strong>密码</strong>：常用</p>
+<p>EXSI 平台IP地址：<code>172.18.58.11</code>。登录用户名和密码请询问管理人员。</p>
 </li>
 </ul>
 <p>仓库相关：</p>
@@ -999,10 +996,10 @@
 <p>地址：<code>https://172.18.58.54:56210/panel</code></p>
 </li>
 <li>
-<p>经确认安全检查仅检查域名下的内容，因此该面板不会被漏洞检查</p>
+<p>经确认信息办安全检查仅检查域名下的内容，因此该面板不会被漏洞检查</p>
 </li>
 <li>
-<p>用户名<code>admin</code>，密码常用。</p>
+<p>登录用户名和密码请询问管理人员。</p>
 </li>
 </ul>
 </details>
@@ -1020,7 +1017,7 @@
 <div class="admonition warning">
 <p class="admonition-title">重要</p>
 <p><strong>源码更新方式</strong>：上传至github后，在EXSI打开服务器控制台或者用ssh连接，用<code>git pull</code>同步仓库源码，最后重启Django。不要直接在后端动源码。如果确需试验代码功能或者实践各类技术，可以去<strong>爱心屋测试平台</strong>。</p>
-<p>命令<code>ssh</code>连接服务器系统： <code>ssh itdep@172.18.58.54</code> 密码为常用密码</p>
+<p>命令<code>ssh</code>连接服务器系统： <code>ssh itdep@172.18.58.54</code></p>
 <p>命令<code>git</code>管理源码版本：</p>
 <ul>
 <li>先进行网络连接：<code>~/scripts/srun.sh</code> 使用老学长的校园网账号密码认证，如果不能用了可以修改一下脚本。或者在<code>~/scripts</code>文件夹下 <code>srun login -s http://172.20.13.100 -u 学号 -p 密码 -d --acid 18</code> 如果连接超时，Ctrl+C退出然后再次尝试。</li>
@@ -1039,8 +1036,8 @@
 <p>拒绝了<code>.map</code>文件的访问请求</p>
 </details>
 <h4 id="3">3.数据库<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
-<p><code>apt</code>更新数据库老是出毛病，一怒之下放到了docker容器中。现在数据库地址为<code>172.17.0.1</code>（本质上还是<code>127.0.0.1</code>，不过是docker网络），端口还是3306，用户名<code>root</code>，密码常用。</p>
-<p>在对数据库进行操作前，请先备份。数据库每天凌晨都会进行自动备份，脚本位于<code>~/scripts/</code>。同时，请注意保存<strong>media文件目录</strong>。</p>
+<p><code>apt</code>更新数据库老是出毛病，一怒之下放到了docker容器中。现在数据库地址为<code>172.17.0.1</code>（本质上还是<code>127.0.0.1</code>，不过是docker网络），端口还是3306，网站连接数据库用户名为<code>axw</code>，密码也在配置文件中写好。</p>
+<p>在对数据库进行操作前，请先备份。数据库每天凌晨都会进行自动备份，脚本位于<code>~/scripts/</code>。同时，请注意保存media文件目录。</p>
 <div class="admonition warning">
 <p class="admonition-title">重要</p>
 <p>服务器中 <code>/var/www/html/axw2022/media</code> 的文件目录，其中包括各种图片资源，如果缺失，网站页面无法正确加载。因此，在导出数据库文件的同时，请<strong>下载</strong>服务器中 <code>/var/www/html/axw2022/media</code> 的文件目录。</p>
@@ -1064,7 +1061,7 @@
 flush privileges;
 select user,host from user; ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '常用';
 </code></pre>
-<p>之后还要再创建一个单独的mysql用户：</p>
+<p>之后还要再创建一个单独的mysql用户（需要先导入数据库，才可以授予数据库权限）：</p>
 <pre><code>CREATE USER 'axw'@'%' IDENTIFIED BY '常用';
 GRANT all privileges ON AXW.* TO 'axw'@'%';
 FLUSH PRIVILEGES;
@@ -1093,7 +1090,7 @@ FLUSH PRIVILEGES;
 <p>打开 <code>172.18.58.2</code> 也就是 router 的电源，否则无法正确配置虚拟机网络。</p>
 </li>
 <li>
-<p>如需配置路由，<strong>router 管理账号</strong>：<code>ROS-ESX</code> <strong>密码</strong>：常用</p>
+<p>如需配置路由，<strong>router 管理账号</strong>：<code>ROS-ESX</code> 。密码请询问管理人员。</p>
 </li>
 <li>
 <p>打开 <code>172.18.58.54</code>  AXW服务器电源。</p>
@@ -1102,7 +1099,7 @@ FLUSH PRIVILEGES;
 <p>最后一步：设置。</p>
 </li>
 </ul>
-<p>（目前已不需要，所有服务在开机后都会自动启动）虚拟机服务器无法自动获取ip地址，需要使用 <code>dhclient</code> 进行自动设置。</p>
+<p>以下操作目前已不需要，所有服务在开机后都会自动启动。</p>
 <ol>
 <li>
 <p>首先使用 <code>sudo ip addr show</code> 查看网络状态，请检查 IPv4 地址是否被正确分配到（图示为正常情况）。</p>
@@ -1132,12 +1129,11 @@ journalctl -xeu axw</code></p>
 <p>重启Caddy服务</p>
 </li>
 </ol>
-<p>在Linux系统输入以下命令：</p>
 <h3 id="_6">三.新增认定人员数据如何导入<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>每学年都会有大量同学成为爱心屋新用户，创建新用户虽然不难，但目前还是交给了IT部来做。以下是方法：</p>
 <ol>
 <li>
-<p>在校园网环境下打开网站： <code>https://axw.ecust.edu.cn/User_Admin/batch_add_user/</code></p>
+<p>在校园网环境下打开网站： <code>https://axw.ecust.edu.cn/User_Admin/batch_add_user/</code>（TODO：需要迁移到admin）</p>
 </li>
 <li>
 <p>下载模板，把爱心屋提供的人员信息填进去，<strong>注意学号、姓名、身份证号都是字符类型，表格底部数字为爱心币数量</strong>（eg. 1000）</p>
@@ -1152,13 +1148,13 @@ journalctl -xeu axw</code></p>
 <p>首先，请在EXSI平台<strong>保存服务器快照</strong>并备份数据库，然后再进行任何数据修改。</p>
 <ol>
 <li>
-<p>校园网环境下使用<code>ssh</code> <code>ssh -h 172.18.58.54 -u itdep -p</code>；</p>
+<p>校园网环境下使用<code>ssh</code>；</p>
 </li>
 <li>
 <p>运行<code>docker exec mysql-server bash -it</code>进入容器的命令行；</p>
 </li>
 </ol>
-<p>然后输入<code>mysql -u root -p</code>，再输入密码（常用）。</p>
+<p>然后输入<code>mysql -u root -p</code>，再输入密码。登录密码请询问管理人员。</p>
 <ol>
 <li>使用<code>show</code>命令查询数据库、数据表，使用<code>use</code>选择数据库，使用<code>select</code>输出符合条件的数据。</li>
 </ol>
@@ -1198,7 +1194,7 @@ tar cvpzf backup.tgz --exclude=./proc --exclude=./lost+found --exclude=backup.tg
 <p>备份时间很长，请耐心等待。备份后<strong>请重命名<code>backup.tgz</code>并妥善保存</strong>好该文件。</p>
 <p>目前保存在IT的电脑里，位置：<code>F:/服务器tar备份</code></p>
 <p>为了预防服务器数据丢失，我写了一个自动备份数据库并上传到gitee仓库和IT电脑的脚本，即 <code>~/scripts/AXWbak.sh</code>。</p>
-<p>所有数据库备份文件都经过加密，解密方式为 <code>openssl enc -d -aes-256-cbc -in backup.enc -out backup.sql -pass pass:"*"</code> <code>*</code>处是常用密码。</p>
+<p>所有数据库备份文件都经过加密，解密方式为 <code>openssl enc -d -aes-256-cbc -in backup.enc -out backup.sql -pass pass:"*"</code> <code>*</code>处是密码。密码请询问管理人员。</p>
 <p><strong>对于虚拟机硬盘的操作，比如扩容等，请先tar备份。</strong></p>
 <ul>
 <li>25年5月因为扩容格式错误导致系统损坏，非常难搞。最后是靠tar备份提取数据库文件才修复的。</li>
