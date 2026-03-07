@@ -9,10 +9,14 @@ nav:
     - 须知: index.md
     - 关于项目: readme.md
     - 贡献方法和规范: 本项目和仓库相关/贡献方法和规范.md
+  - 勤工助学官网:
+    - 关于官网: 勤工助学官网/README.md
   - 爱心屋线上平台:
     - 关于爱心屋: 爱心屋线上平台/README.md
     - 爱心屋维护: 爱心屋线上平台/maintenance/readme.md
     - 爱心屋部署: 爱心屋线上平台/deploy/readme.md
+  - 基础技术文档:
+    - 关于基础技术文档: 基础技术文档/README.md
 
 #[UI]
 theme:
