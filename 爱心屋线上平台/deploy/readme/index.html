@@ -499,23 +499,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="这篇文档的由来">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2329537849qqcom" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        重要：本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -611,23 +594,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="这篇文档的由来">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2329537849qqcom" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        重要：本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -700,7 +666,10 @@
 <p>在IT工作的几个月里，爱心屋服务器有时会出现bug，需要我们员工来修。</p>
 <p>然而，对于我这样的rookie而言，一步到位的修复是不可能的，我常常需要多次提交测试才能弄清楚修改的方式。由于爱心屋网站一直处于活跃状态，测试会影响到爱心屋的工作，因此现在非常有必要再部署一个测试环境。幸运的是，在25年过年期间，在不断摸索下，我成功再次部署了爱心屋网站，并写下这篇教程，正好作为部署教程，供所有为爱心屋网站服务的同学查看。</p>
 <p>本人创建的虚拟机名称为：<code>AXW-TestEnv</code>。</p>
-<h4 id="2329537849qqcom">重要：本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！<a class="headerlink" href="#2329537849qqcom" title="Permanent link">&para;</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">重要</p>
+<p>本文如有错误或过时的内容，请联系作者：2329537849@qq.com。在此提前感谢您的勘误！</p>
+</div>
 <h2 id="i">I. 系统和环境搭建<a class="headerlink" href="#i" title="Permanent link">&para;</a></h2>
 <p>虚拟机建立系统就使用EXSI里保存的ubuntu系统镜像即可。在EXSI管理界面增加新的虚拟机，并安装相应系统。</p>
 <ul>
@@ -741,19 +710,20 @@
 <p>按照提示输入信息即可。参考<a href="https://blog.csdn.net/lianghecai52171314/article/details/113807099">文章</a>。</p>
 <ul>
 <li>
-<p>数据库名：<code>AXW</code>，根用户名：<code>root</code>，密码请设置为常用密码。</p>
+<p>数据库名：<code>AXW</code>，根用户名：<code>root</code>。</p>
 </li>
 <li>
 <p>mysql装好后需要建立数据库。</p>
 </li>
 <li><code>mysql -u root -p</code> 登录数据库。</li>
 <li><code>create DATABASE AXW;</code> 即可建立所需数据库。</li>
-<li>如果在启动时想要以root用户名登录数据库（settings.py里），那么请输入该指令：<code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '这里改成常用密码';</code>。</li>
+<li>如果在启动时想要以root用户名登录数据库（settings.py里），那么请输入该指令：<code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '登录密码';</code>。</li>
 </ul>
 <p>然后是python。首先安装conda，直接复制以下代码即可。如果conda有更新可以更换为新版本，只要把sh文件名称换一下即可。</p>
 <p><code>wget -c https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh</code></p>
 <p>conda默认会安装在 <code>/home/itdep</code> 目录下，可以修改。注意，安装时会询问是否需要添加环境变量，如果不会在linux系统中添加，请输入 <code>yes</code>。总之想省事一路 <code>yes</code> 就行了，然后输入以下指令刷新环境变量：</p>
 <p><code>source /home/itdep/.bashrc</code></p>
+<p>如果不能加入环境变量，也可以使用该命令 <code>/home/itdep/anaconda3/bin/conda init bash</code></p>
 <p>想要卸载conda也很简单，直接删除 <code>/home/itdep/anaconda3</code> 文件夹即可。</p>
 <p><code>rm -rf /home/itdep/anaconda3</code></p>
 <p>安装成功后，输入以下指令，若返回conda版本信息，则conda安装成功。</p>
@@ -780,7 +750,16 @@
     python manage.py createsuperuser
     python manage.py collectstatic
     python /var/www/html/axw2022/manage.py runserver 0.0.0.0:8000</code></p>
-<p>最后校内访问：IT部测试平台为172.18.58.177.</p>
+<div class="admonition warning">
+<p class="admonition-title">重要</p>
+<p>如果不出意外，运行 <code>python manage.py makemigrations</code> 时会提示数据库没有安装，或者数据库版本过低。但实际上我们已经安装了 <code>pymysql</code> ，是可以使用外部的数据库服务器的。</p>
+<p>在setting.py的__init__.py里写入</p>
+<p><code>import pymysql
+pymysql.version_info = (2, 2, 1, "final", 0)
+pymysql.install_as_MySQLdb()</code></p>
+<p>再运行即可成功连接数据库。</p>
+</div>
+<p>最后校内访问：IT部测试平台为<code>172.18.58.177</code>（可能会改变，请注意检查虚拟机网络拓扑）.</p>
 <h2 id="_2">其他讯息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>报错：
 - &gt; "Can't connect to local MySQL server through socket '/tmp/mysql.sock<code>-</code>sudo find / -name mysql.sock<code>然后</code>ln -s <path/to/mysqld.sock> /tmp/mysql.sock<code>-</code>Error loading MySQLdb module`
