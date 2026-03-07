@@ -47,4 +47,6 @@ git clone --depth=1 https://github.com/ITdep-Ecust/itdep-ecust.github.io
 
 - 通过PR进行内容纠错与更新，或提出Issues指出建议、问题和需更改之处
 
+## 许可
 
+采用CC-BY-NC-SA 4.0协议，详见`LICENSE`文件。

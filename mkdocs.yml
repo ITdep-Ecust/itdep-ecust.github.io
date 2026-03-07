@@ -78,4 +78,4 @@ extra_javascript:
   
 extra:
   generator: false  #删除页脚显示“MkDocs”
-copyright: Copyright &copy; ITdep in Qinban, Ecust. 保留一切权利. # 左下角的版权声明
+copyright: Copyright &copy; ITdep in Qinban, Ecust. 内容采用CC-BY-NC-SA 4.0协议. # 左下角的版权声明
