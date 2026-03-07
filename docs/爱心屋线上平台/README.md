@@ -12,7 +12,7 @@
 
 网站负责管理虚拟货币“爱心币”的订单交易。绿色通道和家庭经济困难的同学可以用“爱心币”购买物品。
 
-![image](asserts/1.png)
+![image](asserts/axw.png)
 
 ## 仓库说明
 本项目的主仓库托管于 [Github](https://github.com/ITdep-Ecust/axw2022) ，国内镜像为 [Gitee](https://gitee.com/ecust_itdep/axw2022) ，为保障代码一致性，请注意以下事项：
@@ -35,23 +35,29 @@
 ## To Do List
 
 - [x] 订单管理逻辑 remake，统一移至 DjangoAdmin
-- [ ] 导入功能 remake
+
+- 导入功能 remake
   - [ ] 移至 DjangoAdmin
   - [x] 改用 pandas 读入
   - [ ] 用 Series 增强易读性
+  
 - [ ] 客户订单管理 remake，客户信息收集/密码修改功能
+
 - [x] 下单逻辑 remake，限购逻辑 remake
-- [x] 前端页面优化
+
+- 前端页面优化
   - [x] 商品搜索功能
+  
 - [ ] 饼：OAuth
+
 - [ ] 改用 postgresql
 
 ## 爱心屋服务器维护
 
-相关内容请参照[/maintenance](maintenance/readme.md)。
+维护相关[/maintenance](maintenance/readme.md)。
 
 ## 服务器重新部署
 
-相关内容请参照[/deploy](deploy/readme.md)。
+部署相关[/deploy](deploy/readme.md)。
 
 
