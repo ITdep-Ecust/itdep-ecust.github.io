@@ -91,7 +91,9 @@ conda默认会安装在 `/home/itdep` 目录下，可以修改。注意，安装
 
 接下来就是安装所需的库。最好先换源，pip和conda都要，怎么换源就不详细说明了。安装库可以使用git仓库里面的requirement.txt文件，也可以复制下面的代码（已使用清华源）。
 
-`pip install Django django-simpleui django-imagekit pymysql pandas cryptography django-cors-headers Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple/`
+```
+pip install Django django-simpleui django-imagekit pymysql pandas cryptography django-cors-headers Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple/
+```
 
 不要忘记清理缓存，输入以下指令：
 
@@ -107,27 +109,27 @@ conda默认会安装在 `/home/itdep` 目录下，可以修改。注意，安装
 
 启动的话，`cd /var/www/html/axw2022`，再按照如下次序依次启动即可。
     
-  ```
-    python manage.py makemigrations
-    python manage.py migrate
-    python manage.py createsuperuser
-    python manage.py collectstatic
-    python /var/www/html/axw2022/manage.py runserver 0.0.0.0:8000
-  ```
+```
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py collectstatic
+python /var/www/html/axw2022/manage.py runserver 0.0.0.0:8000
+```
 
 !!! warning "重要"
 
     如果不出意外，运行 `python manage.py makemigrations` 时会提示数据库没有安装，或者数据库版本过低。但实际上我们已经安装了 `pymysql` ，是可以使用外部的数据库服务器的。
 	
-	在setting.py的__init__.py里写入
+    在setting.py的__init__.py里写入
 
-    ```
-    import pymysql
-    pymysql.version_info = (2, 2, 1, "final", 0)
-    pymysql.install_as_MySQLdb()
-    ```
+    `import pymysql`
 	
-	再运行即可成功连接数据库。
+    `pymysql.version_info = (2, 2, 1, "final", 0)`	
+	
+    `pymysql.install_as_MySQLdb()`	
+	
+    再次运行即可成功连接数据库。
 	
 
 最后校内访问：IT部测试平台为`172.18.58.177`（可能会改变，请注意检查虚拟机网络拓扑）.
@@ -135,8 +137,10 @@ conda默认会安装在 `/home/itdep` 目录下，可以修改。注意，安装
 ## 其他讯息
 
 报错：
+
 - > "Can't connect to local MySQL server through socket '/tmp/mysql.sock`
   - `sudo find / -name mysql.sock` 然后 `ln -s <path/to/mysqld.sock> /tmp/mysql.sock`
+  
 - `Error loading MySQLdb module`
   - [Django运行报错： Error loading MySQLdb module解决办法](https://blog.csdn.net/jyr2014/article/details/126712167)
   - 使用附件中的__init__.py文件（settings.py同目录）。

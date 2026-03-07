@@ -1,3 +1,7 @@
-## ITDEP
+## 欢迎！
 
-For Test
+这里是**华东理工大学勤工助学IT部**的文档站。
+
+## 关于仓库
+
+请访问[readme.md](readme.md)

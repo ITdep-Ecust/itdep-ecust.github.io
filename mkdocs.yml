@@ -1,15 +1,17 @@
 #[Info]
-site_name: 勤工助学IT部知识库
+site_name: 勤工助学IT部文档
 repo_name: itdep-ecust.github.io
 repo_url: https://github.com/ITdep-Ecust/itdep-ecust.github.io
 site_author: IT-dep in qinban, ECUST.
 #[NAVigation]
 nav:
-  - 首页: index.md
+  - 关于:
+    - 须知: index.md
+    - 仓库相关: readme.md
   - 爱心屋线上平台:
-    - 首页: 爱心屋线上平台/README.md
-    - 维护: 爱心屋线上平台/maintenance/readme.md
-    - 部署: 爱心屋线上平台/deploy/readme.md
+    - 关于爱心屋: 爱心屋线上平台/README.md
+    - 爱心屋维护: 爱心屋线上平台/maintenance/readme.md
+    - 爱心屋部署: 爱心屋线上平台/deploy/readme.md
 #[UI]
 theme:
   name: material
