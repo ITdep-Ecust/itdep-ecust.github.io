@@ -17,6 +17,7 @@ nav:
     - 爱心屋部署: 爱心屋线上平台/deploy/readme.md
   - 基础技术文档:
     - 关于基础技术文档: 基础技术文档/README.md
+    - Wireguard使用: 基础技术文档/Wireguard使用.md
 
 #[UI]
 theme:

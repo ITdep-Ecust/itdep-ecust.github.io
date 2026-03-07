@@ -139,8 +139,8 @@ python /var/www/html/axw2022/manage.py runserver 0.0.0.0:8000
 报错：
 
 - > "Can't connect to local MySQL server through socket '/tmp/mysql.sock`
-  - `sudo find / -name mysql.sock` 然后 `ln -s <path/to/mysqld.sock> /tmp/mysql.sock`
-  
+    - `sudo find / -name mysql.sock` 然后 `ln -s <path/to/mysqld.sock> /tmp/mysql.sock`
+
 - `Error loading MySQLdb module`
-  - [Django运行报错： Error loading MySQLdb module解决办法](https://blog.csdn.net/jyr2014/article/details/126712167)
-  - 使用附件中的__init__.py文件（settings.py同目录）。
+    - [Django运行报错： Error loading MySQLdb module解决办法](https://blog.csdn.net/jyr2014/article/details/126712167)
+    - 使用附件中的__init__.py文件（settings.py同目录）。
