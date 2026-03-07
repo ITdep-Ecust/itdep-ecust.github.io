@@ -95,15 +95,13 @@ Nginx，配置文件在/etc/nginx下，修改后先sudo nginx -t，再sudo nginx
 
 #### 3.数据库
 
-`apt`更新数据库老是出毛病，一怒之下放到了docker容器中。现在数据库地址为`172.17.0.1`（本质上还是`127.0.0.1`，不过是docker网络），端口还是3306，网站连接数据库用户名为`axw`，密码也在配置文件中写好。
+`apt`更新时，老是由于数据库而报错，一怒之下放到了docker容器中。现在数据库地址为`172.17.0.1`（本质上还是`127.0.0.1`，不过是docker网络），端口还是3306，网站连接数据库用户名为`axw`，密码也已经在配置文件`settings.py`中写好。
 
-在对数据库进行操作前，请先备份。数据库每天凌晨都会进行自动备份，脚本位于`~/scripts/`。同时，请注意保存media文件目录。
+在对数据库进行操作前，请先备份。为了预防服务器数据丢失，服务器每天凌晨都会进行自动备份，备份位置位于[Gitee](https://gitee.com/ecust_itdep/axwbak)，备份脚本位于`~/scripts/AXWbak.sh`。
 
-!!! warning "重要"
+关于数据库的导入，所有数据库备份文件都经过加密，首先需要将数据库上传到服务器内进行解密，解密方式为 `openssl enc -d -aes-256-cbc -in backup.enc -out backup.sql -pass pass:"*"` `*`处是密码。密码请询问管理人员。
 
-    服务器中 `/var/www/html/axw2022/media` 的文件目录，其中包括各种图片资源，如果缺失，网站页面无法正确加载。因此，在导出数据库文件的同时，请**下载**服务器中 `/var/www/html/axw2022/media` 的文件目录。
-
-关于数据库的导入，有两种方法：
+解密完成后，有两种方法可以导入docker容器内的数据库：
 
 ??? info "命令行导入法"
 
@@ -138,6 +136,12 @@ CREATE USER 'axw'@'%' IDENTIFIED BY '常用';
 GRANT all privileges ON AXW.* TO 'axw'@'%';
 FLUSH PRIVILEGES;
 ```
+
+同时，请注意保存media文件目录。
+
+!!! warning "重要"
+
+    服务器中 `/var/www/html/axw2022/media` 的文件目录，其中包括各种图片资源，如果缺失，网站页面无法正确加载。因此，在导出数据库文件的同时，请**下载**服务器中 `/var/www/html/axw2022/media` 的文件目录。
 
 #### 4.虚拟机系统
 
@@ -266,10 +270,6 @@ tar cvpzf backup.tgz --exclude=./proc --exclude=./lost+found --exclude=backup.tg
 备份时间很长，请耐心等待。备份后**请重命名`backup.tgz`并妥善保存**好该文件。
 
 目前保存在IT的电脑里，位置：`F:/服务器tar备份`
-
-为了预防服务器数据丢失，我写了一个自动备份数据库并上传到gitee仓库和IT电脑的脚本，即 `~/scripts/AXWbak.sh`。
-
-所有数据库备份文件都经过加密，解密方式为 `openssl enc -d -aes-256-cbc -in backup.enc -out backup.sql -pass pass:"*"` `*`处是密码。密码请询问管理人员。
 
 **对于虚拟机硬盘的操作，比如扩容等，请先tar备份。**
 
