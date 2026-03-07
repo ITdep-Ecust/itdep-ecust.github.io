@@ -25,7 +25,7 @@
     
     
       
-        <title>贡献方法和规范 - 勤工助学IT部文档</title>
+        <title>贡献方法和规范 - 勤工助学IT部文档（Beta）</title>
       
     
     
@@ -107,7 +107,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="勤工助学IT部文档" class="md-header__button md-logo" aria-label="勤工助学IT部文档" data-md-component="logo">
+    <a href="../.." title="勤工助学IT部文档（Beta）" class="md-header__button md-logo" aria-label="勤工助学IT部文档（Beta）" data-md-component="logo">
       
   <img src="../../asserts/images/qzzxLogo-L.jpg" alt="logo">
 
@@ -120,7 +120,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            勤工助学IT部文档
+            勤工助学IT部文档（Beta）
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -337,12 +337,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="勤工助学IT部文档" class="md-nav__button md-logo" aria-label="勤工助学IT部文档" data-md-component="logo">
+    <a href="../.." title="勤工助学IT部文档（Beta）" class="md-nav__button md-logo" aria-label="勤工助学IT部文档（Beta）" data-md-component="logo">
       
   <img src="../../asserts/images/qzzxLogo-L.jpg" alt="logo">
 
     </a>
-    勤工助学IT部文档
+    勤工助学IT部文档（Beta）
   </label>
   
     <div class="md-nav__source">
@@ -1155,19 +1155,21 @@
 <hr />
 <h2 id="_2">二、提交<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="21">2.1 文件路径规范<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>首先所有目录都在 <code>mkdocs.yml</code> 内规定好。虽然可以自动识别，但还是提前规定为佳。</p>
+<p>要修改路径，只需要在 <code>mkdocs.yml</code> 的 <code>#Navigation</code> 下模仿其它目录即可。</p>
 <h4 id="_3">网站<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>本仓库中每个网站项目有一个单独的类别，通常包括网站介绍、维护手册、重新部署手册等，因此上传网站相关内容请遵守如下格式：</p>
 <ul>
 <li>网站文档根目录下<ul>
-<li>关于文档: ./README.md</li>
-<li>维护: ./maintenance/readme.md</li>
-<li>部署: ./deploy/readme.md</li>
+<li>关于文档: README.md</li>
+<li>维护: maintenance/readme.md</li>
+<li>部署: deploy/readme.md</li>
 </ul>
 </li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">关于文件</p>
-<p>如有相关资料补充文件，也放到对应文件夹即可。</p>
+<p>如有相关资料补充文件，如维护文档的附件，也放到对应文件夹即可。</p>
 </div>
 <h4 id="_4">其他技术文档<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>统一放入基础技术文档文件夹即可，暂无分类要求，之后管理员统一处理。</p>
@@ -1178,7 +1180,6 @@
 <p>你需要有能力书写MD文件。</p>
 </div>
 <p>本仓库中所有文档文件以Markdown进行书写。作为IT人员，请务必熟悉MD语法。（可出教程）</p>
-<hr />
 <h3 id="23-prpull-request">2.3 PR（Pull Request）<a class="headerlink" href="#23-prpull-request" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">重要</p>
