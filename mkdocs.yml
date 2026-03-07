@@ -7,6 +7,7 @@ site_author: IT-dep in qinban, ECUST.
 nav:
   - 首页: index.md
   - 爱心屋线上平台:
+    - 首页: 爱心屋线上平台/README.md
     - 维护: 爱心屋线上平台/maintenance/readme.md
     - 部署: 爱心屋线上平台/deploy/readme.md
 #[UI]
